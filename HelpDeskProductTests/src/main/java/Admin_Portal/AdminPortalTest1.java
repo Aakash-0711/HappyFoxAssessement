@@ -1,6 +1,5 @@
 package Admin_Portal;
 
-import org.seleniumhq.jetty9.util.log.LoggerLog;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
