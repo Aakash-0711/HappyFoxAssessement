@@ -34,6 +34,8 @@ public static String Subject = "Test Ticket raised by XYZ";
 public static String Message = "Hi, i am having certain issues in the Happy fox portal. Can you please help me.";
 public static String FullName = "Reese Harrold";
 public static String Email = "testno100@gmail.com";
+public static String Title="Login - HappyFox";
+public String className = null;
 
 public void loginasAdmin() {
     
@@ -50,7 +52,7 @@ public void loginasAdmin() {
 		System.out.println("password entered");
 		hploginpage.clickLoginbutton();
 		System.out.println("login clicked");
-		hpAdminPortalTest1=hploginpage.validatePendingTicketsTitle();
+		hpAdminPortalTest1=hploginpage.validatePendingTicketsTitle(Title);
 		
 		
 	}
@@ -94,12 +96,12 @@ public void loginasAdmin() {
   }
   
   public void TestCase1() {
-		
+	  
 		try {
 			
-			String Classname = getClass().getSimpleName();
-          System.out.println("start of method : " + Classname);
-          hpAdminPortalTest1=hploginpage.validatePendingTicketsTitle();
+			className = getClass().getSimpleName();
+          System.out.println("start of method : " + className);
+          hpAdminPortalTest1=hploginpage.validatePendingTicketsTitle(Title);
           hpAdminPortalTest1.clickStatus();
           hpAdminPortalTest1.clickNewStatus();
           System.out.println("New Status process started");
@@ -127,19 +129,19 @@ public void loginasAdmin() {
 		
 		catch (Throwable e) {
 			e.printStackTrace();
+			Assert.fail("Error in " + className + " : " + e.getMessage());
 		}
 		
 	
 } 
   
   public void TestCase2() {
-		
 		try {
 			
-			String Classname = getClass().getSimpleName();
-          System.out.println("start of method : " + Classname);
+			className = getClass().getSimpleName();
+          System.out.println("start of method : " + className);
           CreatingSupportTicket();
-          hploginpage.validatePendingTicketsTitle1();
+          hploginpage.validatePendingTicketsTitle1(Title);
           hpAdminPortalTest2.clickPendingTickets();
           System.out.println("Pending tickets clicked");
           hpAdminPortalTest2.openCustomerTicket(Subject);
@@ -168,14 +170,14 @@ public void loginasAdmin() {
 		
 		catch(Throwable t) {
 			 t.printStackTrace();
+			 Assert.fail("Error in " + className + " : " + t.getMessage());
 		}
 }
   
   public void TestCase3() {
-		
 		try {
 			
-			String Classname = getClass().getSimpleName();
+			className = getClass().getSimpleName();
 			hpAdminPortalTest1.setDefaultPriroity("Low");
 			System.out.println("Default priority set as Low");
 			hpAdminPortalTest1.ClickAddedPriority(priorityName);
@@ -201,6 +203,7 @@ public void loginasAdmin() {
 		
 		catch (Throwable e) {
 			e.printStackTrace();
+			Assert.fail("Error in " + className + " : " + e.getMessage());
 		}
 		
 	

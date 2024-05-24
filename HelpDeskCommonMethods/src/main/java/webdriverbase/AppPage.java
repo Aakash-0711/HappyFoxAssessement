@@ -58,11 +58,12 @@ public class AppPage {
 	}
 	
 	public void waitImplicitly() {
-		driver.manage().timeouts().implicitlyWait(WAIT_TIME_SEC, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WAIT_TIME_SEC));
+		
 	}
 
 	public void waitImplicitly(int timeOutInSeconds) {
-		driver.manage().timeouts().implicitlyWait(timeOutInSeconds, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(timeOutInSeconds));
 	}
 	
 	public void clearAndType(WebElement element, String text) {
@@ -105,7 +106,7 @@ public class AppPage {
 	}
 	
 	public void waitForVisible(WebElement element) {
-		WebDriverWait wait = new WebDriverWait(driver, WAIT_TIME_SEC);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME_SEC));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 	

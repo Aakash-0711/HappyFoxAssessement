@@ -11,15 +11,15 @@ public class BaseTest {
 
     @BeforeSuite
     public void beforeSuite() {
-    	
-    	System.setProperty("webdriver.chrome.driver","C:\\Users\\test\\Desktop\\D drive\\automation\\Chrome driver\\chromedriver.exe");
+    	//comment added
+    	//System.setProperty("webdriver.chrome.driver","C:\\Users\\test\\Desktop\\D drive\\automation\\Chrome driver\\chromedriver.exe");
         driver = new ChromeDriver();
     }
     
     @AfterSuite
     public void afterSuite() {
         if(null != driver) {
-            driver.close();
+            //driver.close();
             driver.quit();
         }
     }
